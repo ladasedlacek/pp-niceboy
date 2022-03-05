@@ -1,0 +1,185 @@
+// carousel
+#celek .ppCarousel{
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+
+    .mySwiper{
+        background: #5cb899;
+        background: linear-gradient(0deg,#5cb899,#a3c42f);
+        border-radius: 10px;
+
+        .swiper-wrapper{
+            width: 100%;
+            margin: 0 auto;
+            height: auto;
+            padding-top: 44px;
+        }
+
+        .swiper-slide{
+            &__wrapper{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            &__textWrapper{
+                width: calc(50% - 84px);
+                margin-left: 84px;
+                text-align: left;
+
+                .hdl3{
+                    color: $white;
+                }
+
+                .perex{
+                    color: $white;
+                    margin-top: 24px;
+                }
+            }
+
+            &__imageWrapper{
+                width: calc(45% - 84px);
+                margin-right: 84px;
+                text-align: left;
+
+                &--image{
+                    img{
+                        border-radius: 10px;
+                        max-height: 100%;
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    // bullets
+    .swiper-pagination{
+        position: relative;
+        margin: 16px auto;
+        display: flex;
+        justify-content: center;
+        transform: translateY(10px);
+    }
+
+    .swiper-pagination-bullet{
+        opacity: 1;
+        background: $white;
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+
+        &:last-of-type{
+            margin-right: 0;
+        }
+    }
+
+    .swiper-pagination-bullet-active{
+        background: rgba($color: $black, $alpha: .4);
+        opacity: 1;
+    }
+
+    .swiper-pagination-bullet:focus,
+    .swiper-pagination-bullet-active:focus{
+        outline: transparent;
+    }
+
+    // pagination buttons
+    .swiper-button-next, .swiper-button-prev{
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .swiper-button-next:focus, .swiper-button-prev:focus{
+        outline: transparent;
+    }
+
+    .swiper-button-prev, 
+    .swiper-container-rtl .swiper-button-next,
+    .swiper-button-next, 
+    .swiper-container-rtl .swiper-button-prev{
+        background-image: none;
+    }
+
+    .swiper-button-prev:after,
+    .swiper-button-next:after{
+        display: none;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next{
+        width: 25px;
+        height: 60px;
+        background: rgba($color: $black, $alpha: .4);
+        border-radius: 0 4px 4px 0;
+        transition: .3s ease-in-out;
+        box-shadow: 2px 1px 4px (rgba($color: $black, $alpha: .15));
+        margin: 0;
+
+        &:hover{
+            background: rgba($color: $black, $alpha: .6);
+        }
+
+        .swiper-button-img{
+            width: 12px;
+
+            path{
+                fill: $white;
+            }
+        }
+    }
+
+    .swiper-button-prev{
+        left: 0;
+
+        .swiper-button-img{
+            margin-left: 4px;
+        }
+    }
+
+    .swiper-button-next{
+        right: 0;
+        border-radius: 4px 0 0 4px;
+        box-shadow: -2px 1px 4px (rgba($color: $black, $alpha: .15));
+
+        .swiper-button-img{
+            margin-right: 4px;
+        }
+    }
+}
+
+// admin displa block all slides
+#legend #celek .ppCarousel .mySwiper,
+#legend #celek .ppCarousel{
+    overflow: visible;
+}
+
+#legend #celek .ppCarousel .swiper-wrapper{
+    display: block;
+}
+    
+// mobile and app
+@media only screen and (max-width: 750px){
+    .mobile #celek,
+    .mobileapp #celek{
+        .ppCarousel .mySwiper .swiper-slide__textWrapper{
+            width: 100%;
+            margin: 24px auto 0;
+            padding: 0 56px;
+            order: 2;
+        } 
+
+        .ppCarousel .mySwiper .swiper-slide__imageWrapper{
+            width: 70%;
+            margin-right: 0;
+            margin: 0 auto;
+            order: 1;
+        }
+    }
+}

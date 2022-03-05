@@ -1,0 +1,246 @@
+#celek{
+    .ppDetail{
+        padding: 30px 0;
+
+        .ppSplit{
+            margin-top: 60px;
+            @include flex;
+            justify-content: space-between;
+
+            &:first-of-type{
+                margin-top: 0;
+            }
+
+            &:nth-of-type(even){
+                .ppImage{
+                    order: 2;
+                }
+
+                .ppText{
+                    order: 1;
+                }
+            }
+
+            .ppImage{
+                width: calc(50% - 30px);
+                order: 1;
+
+                &__wrapper{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img{
+                        border-radius: 10px;
+                        max-height: 100%;
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .ppText{
+                box-sizing: border-box;
+                width: calc(50% - 30px);
+                text-align: left;
+                order: 2;
+                
+                .hdl3{
+                    color: $color-headlines;
+                }
+
+                .perex{
+                    margin: 24px 0 0;
+                    color: $color-perex;
+                }
+            }
+        }
+    }
+
+    .ppDetail.detail100,
+    .ppDetail.withBackground{
+        .ppSplit{
+            background: rgb(92,184,153);
+            background: linear-gradient(0deg, rgba(92,184,153,1) 0%, rgba(163,196,47,1) 100%);
+            overflow: hidden;
+        }
+    }
+
+    // 100% width detail
+    .ppDetail.detail100{
+        .ppSplit{
+            border-radius: 10px;
+
+            .ppImage{
+                order: 2;
+                width: 100%;
+
+                &__wrapper{
+                    img{
+                       border-radius: 0 0 10px 10px; 
+                    }
+                }
+            }
+
+            .ppText{
+                order: 1;
+                width: 100%;
+                padding: 0 32px;
+                @include flex;
+                padding: 32px 24px;
+
+                .hdl3{
+                    color: $white;
+                    width: calc(50% - 20px);
+                    margin: 0 10px;
+                    text-align: center;
+                }
+
+                .perex{
+                    color: $white;
+                    width: calc(50% - 20px);
+                    margin: 0 10px;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    // detail with background
+    .withBackground{
+        &:nth-of-type(even){
+            .ppSplit{
+                .ppImage{
+                    order: 1;
+                }
+    
+                .ppText{
+                    order: 2;
+                }
+            }
+        }
+
+        .ppSplit{
+            border-radius: 10px;
+            align-items: stretch;
+
+            .ppImage{
+                order: 2;
+                width: 50%;
+
+                figure{
+                    height: 100%;
+                }
+
+                &__wrapper{
+                    height: 100%;
+
+                    img{
+                        border-radius: 0;
+                        max-height: 100%;
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .ppText{
+                order: 1;
+                width: 50%;
+                padding: 40px 32px;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                align-content: center;
+
+                .hdl3{
+                    color: $white;
+                }
+
+                .perex{
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+// mobile & app
+@media only screen and (max-width: 980px){
+    .mobile #celek,
+    .mobileapp #celek{
+        .ppDetail.detail100,
+        .ppDetail.withBackground{
+            .ppSplit{
+                .ppText{
+                    order: 1;
+                    margin-top: 0;
+                    padding: 32px 24px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .mobile #celek,
+    .mobileapp #celek{
+        .ppDetail.detail100{
+            .ppSplit{
+                .ppText{
+                    order: 1;
+                    margin-top: 0;
+
+                    .hdl3{
+                        width: 100%;
+                    }
+    
+                    .perex{
+                        width: 100%;
+                        text-align: center;
+                        margin-top: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .mobile #celek,
+    .mobileapp #celek{
+        .ppDetail .ppSplit .ppText,
+        .ppDetail .ppSplit .ppImage{
+            width: 100%;
+        }
+
+        .ppDetail .ppSplit .ppImage{
+            &__wrapper{
+                justify-content: center;
+
+                img{
+                    margin: 0 auto;
+                    max-width: 70%;
+                    min-width: auto;
+                }
+            }
+        }
+
+        .ppDetail.withBackground .ppSplit .ppImage__wrapper img,
+        .ppDetail.detail100 .ppSplit .ppImage__wrapper img{
+            max-width: 100%;
+        }
+
+        .ppDetail .ppSplit .ppText{
+            order: 2;
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: 32px;
+        }
+
+        .ppDetail .ppSplit .ppImage{
+            order: 1;
+        }
+    }
+}

@@ -1,0 +1,134 @@
+// size mixin
+@function size($value) {
+    $style: ($value / 16) + rem;	
+    @return $style;
+}
+
+#celek{
+    // headlines
+    .notMoveH1,
+    .hdl2,
+    .hdl3{
+        font-weight: 700;
+        @include roboto;
+        display: block;
+        color: $black;
+    }
+    
+    .notMoveH1{
+        font-size: size(56);
+        line-height: size(72);
+    }
+
+    .notMoveH1.h1B{
+        font-size: size(50);
+        line-height: size(68);
+    }
+
+    .notMoveH1.h1S{
+        font-size: size(40);
+        line-height: size(52);
+    }
+    
+    .hdl2{
+        font-size: size(30);
+        line-height: size(42);
+        font-weight: 300;
+    }
+        
+    .hdl3{
+        font-size: size(34);
+        line-height: size(42);
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+    }
+
+    // body text
+    p,
+    span,
+    a,
+    li,
+    .perex,
+    .par,
+    .par-sm,
+    .listItems{
+        display: block;
+        font-weight: 400;
+        @include roboto;
+        color: $black;
+
+        &--link{
+            display: inline-block;
+            font-weight: 400;
+            @include roboto;
+            text-decoration: underline;
+            color: $media;
+            transition: .3s ease-in-out;
+
+            &:hover{
+                color: darken($color: $media, $amount: 6%);
+            }
+        }
+    }
+
+    .perex,
+    .perex--link{
+        font-size: size(16);
+        line-height: size(26);
+    }
+
+    .par,
+    .listItems,
+    .par--link,
+    .listItems--link{
+        font-size: size(14);
+        line-height: size(24);
+    }
+
+    .par-sm,
+    .par-sm--link{
+        font-size: size(12);
+        line-height: size(21);
+    }
+
+    .fontNormal{
+        font-weight: 400;
+    }
+
+    .fontMedium{
+        font-weight: 500;
+    }
+
+    strong{
+        font-weight: 700;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+}
+
+// media
+@media only screen and (max-width: 750px){
+    .mobile #celek,
+    .mobileapp #celek{
+        .notMoveH1,
+        .notMoveH1.h1B{
+            font-size: size(40);
+            line-height: size(68);
+        }
+    }
+}
+
+@media only screen and (max-width: 550px){
+    .mobile #celek,
+    .mobileapp #celek{
+        .notMoveH1,
+        .notMoveH1.h1B,
+        .notMoveH1.h1S{
+            font-size: size(35);
+            line-height: size(60);
+        }
+    }
+}

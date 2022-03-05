@@ -1,0 +1,23 @@
+
+#celek{
+    .ppLogoBar{
+        width: 100%;
+        height: 110px;
+        background-color: #1D1D1B;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        figure{
+            height: 47px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img{
+                max-height: 47px;
+                height: 47px;
+            }
+        }
+    }
+}

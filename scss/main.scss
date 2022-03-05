@@ -1,0 +1,30 @@
+// primary colors
+$primary: #A50231;
+$secondary: #27251F;
+$white: #fff ;
+$black: #000;
+$color-perex: #333;
+$color-headlines: #1F2226;
+
+// files
+@import "reset";
+@import "mixins";
+@import "alza";
+@import "settings";
+@import "features";
+@import "type";
+
+// content
+@import "layout/logoBar";
+@import "layout/header";
+@import "layout/usps";
+@import "layout/carousel";
+@import "layout/detail";
+@import "layout/video";
+@import "layout/swiper";
+
+
+
+
+
+
