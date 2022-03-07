@@ -1,0 +1,80 @@
+#celek .gradientSelector{
+    display: none;
+
+    &__wrapper{
+        @include flex;
+        align-items: stretch;
+    }
+
+    &__box{
+        width: calc(20% - 10px);
+        margin: 5px;
+        border-radius: 4px;
+        box-shadow: 0 1px 4px rgba($color: $black, $alpha: .15);
+        padding: 16px;
+        @include flex;
+        align-content: center;
+        text-align: center;
+        cursor: pointer;
+        transition: .3s ease-in-out;
+        background-color: $white;
+
+        &:hover{
+            box-shadow: 0 2px 6px rgba($color: $black, $alpha: .3);
+        }
+
+        .par{
+            color: $white;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+    }
+}
+
+// admin
+#legend #celek .gradientSelector{
+    display: block;
+}
+
+// gradient colors
+$colors: (
+    'color-audio': #fab919,
+    'color-video': #d26d99,
+    'color-smart': #a3c42f,
+    'color-gaming': #bf1c3a,
+    'color-konference': #03d0ff,
+    'color-ion': #a8a2fc
+);
+
+$gradients: (
+    'color-audio': linear-gradient(180deg, rgba(249,220,10,1) 0%, rgba(250,185,25,1) 100%),
+    'color-video': linear-gradient(180deg, rgba(210,109,153,1) 0%, rgba(135,96,161,1) 100%),
+    'color-smart': linear-gradient(180deg, rgba(163,196,47,1) 0%, rgba(92,184,153,1) 100%),
+    'color-gaming': linear-gradient(180deg, rgba(191,28,58,1) 0%, rgba(255,23,95,1) 100%),
+    'color-konference': linear-gradient(180deg, rgba(3,208,255,1) 0%, rgba(0,127,197,1) 100%),
+    'color-ion': linear-gradient(180deg, rgba(134,253,232,1) 0%, rgba(168,162,252,1) 100%)
+);
+
+
+// change color for every category
+@each $name, $gradient in $gradients {
+    #celek .gradientSelector__box[data-color="#{$name}"]{
+        background: $gradient;
+    }
+
+    #celek[data-color="#{$name}"]{
+        .ppCarousel .mySwiper,
+        .ppDetail.withBackground .ppSplit{
+            background: $gradient;
+        }
+    }
+}
+
+@each $name, $hex in $colors {
+    #celek[data-color="#{$name}"]{
+        .ppDetail.detail100 .ppSplit{
+            background: $hex;
+        }
+    }
+}

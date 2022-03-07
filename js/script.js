@@ -16,4 +16,12 @@ $(document).ready(function () {
 
 	// if admin is active
 	-1 < window.location.href.indexOf("admin") ? 0 : runSwiper()
+
+	// change colors
+	$('#celek .gradientSelector__box').on("click", function(){
+		$('#celek').attr('data-color', '')
+		let saveValue = $(this).attr('data-color')
+		$("#celek").attr('data-color', saveValue)
+	});
 });
+
