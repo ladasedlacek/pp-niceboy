@@ -1,6 +1,4 @@
 #celek .gradientSelector{
-    display: none;
-
     &__wrapper{
         @include flex;
         align-items: stretch;

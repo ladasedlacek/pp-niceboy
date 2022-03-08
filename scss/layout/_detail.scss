@@ -1,6 +1,6 @@
 #celek{
     .ppDetail{
-        padding: 30px 0;
+        padding: 25px 0;
 
         .ppSplit{
             margin-top: 60px;
@@ -109,18 +109,6 @@
 
     // detail with background
     .withBackground{
-        &:nth-of-type(even){
-            .ppSplit{
-                .ppImage{
-                    order: 1;
-                }
-    
-                .ppText{
-                    order: 2;
-                }
-            }
-        }
-
         .ppSplit{
             border-radius: 10px;
             align-items: stretch;
@@ -162,6 +150,18 @@
                 .perex{
                     color: $white;
                 }
+            }
+        }
+    }
+
+    .ppDetail.withBackground:nth-of-type(even){
+        .ppSplit{
+            .ppImage{
+                order: 1;
+            }
+
+            .ppText{
+                order: 2;
             }
         }
     }
