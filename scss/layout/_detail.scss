@@ -107,6 +107,17 @@
         }
     }
 
+    .ppDetail.detail100.withoutBackground{
+        .ppSplit{
+            background: none;
+
+            .ppText .perex,
+            .ppText .hdl3{
+                color: #1f2226;
+            }
+        }
+    }
+
     // detail with background
     .withBackground{
         .ppSplit{

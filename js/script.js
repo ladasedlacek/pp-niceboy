@@ -15,13 +15,26 @@ $(document).ready(function () {
 	});
 
 	// if admin is active
-	-1 < window.location.href.indexOf("admin") ? 0 : runSwiper()
+	-1 < window.location.href.indexOf("admin") ? 0 : (runSwiper(), removeAddons())
+
+	// remove addons
+	function removeAddons() {
+		$('#celek .ppAddons').remove()
+	}
 
 	// change colors
 	$('#celek .gradientSelector__box').on("click", function(){
 		$('#celek').attr('data-color', '')
 		let saveValue = $(this).attr('data-color')
 		$("#celek").attr('data-color', saveValue)
+	});
+
+	// change video
+	$('#celek .videoChanger .btn').on("click", function(){
+		let videoID = $('#celek .videoChanger__videoID').val()
+		$('#celek .ppVideo iframe').attr('src', 'https://www.youtube.com/embed/' + videoID)
+		videoID.val('')
+		console.log('Video změněno.')
 	});
 });
 
