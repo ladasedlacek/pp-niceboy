@@ -2,6 +2,16 @@
     .ppDetail{
         padding: 25px 0;
 
+        &:nth-of-type(even){
+            .ppImage{
+                order: 2;
+            }
+
+            .ppText{
+                order: 1;
+            }
+        }
+
         .ppSplit{
             margin-top: 60px;
             @include flex;
@@ -15,7 +25,7 @@
                 .ppImage{
                     order: 2;
                 }
-
+    
                 .ppText{
                     order: 1;
                 }
@@ -56,15 +66,58 @@
                 }
             }
         }
+
+        .ppSplit.withBackground{
+            border-radius: 10px;
+
+            .ppImage{
+                width: 50%;
+                overflow: hidden;
+
+                figure{
+                    height: 100%;
+                }
+
+                &__wrapper{
+                    height: 100%;
+
+                    img{
+                        border-radius: 0;
+                        max-height: 100%;
+                        min-width: 100%;
+                        min-height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .ppText{
+                width: 50%;
+                padding: 40px 32px;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                align-content: center;
+
+                .hdl3{
+                    color: $white;
+                }
+
+                .perex{
+                    color: $white;
+                }
+            }
+        }
     }
 
-    .ppDetail.detail100,
-    .ppDetail.withBackground{
-        .ppSplit{
-            background: rgb(92,184,153);
-            background: linear-gradient(0deg, rgba(92,184,153,1) 0%, rgba(163,196,47,1) 100%);
-            overflow: hidden;
-        }
+    .ppDetail.detail100 .ppSplit{
+        overflow: hidden;
+    }
+
+    .ppDetail.detail100 .ppSplit,
+    .ppDetail .ppSplit.withBackground{
+        background: rgb(92,184,153);
+        background: linear-gradient(0deg, rgba(92,184,153,1) 0%, rgba(163,196,47,1) 100%);
     }
 
     // 100% width detail
@@ -117,78 +170,18 @@
             }
         }
     }
-
-    // detail with background
-    .withBackground{
-        .ppSplit{
-            border-radius: 10px;
-            align-items: stretch;
-
-            .ppImage{
-                order: 2;
-                width: 50%;
-
-                figure{
-                    height: 100%;
-                }
-
-                &__wrapper{
-                    height: 100%;
-
-                    img{
-                        border-radius: 0;
-                        max-height: 100%;
-                        min-width: 100%;
-                        min-height: 100%;
-                        object-fit: cover;
-                    }
-                }
-            }
-
-            .ppText{
-                order: 1;
-                width: 50%;
-                padding: 40px 32px;
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                align-content: center;
-
-                .hdl3{
-                    color: $white;
-                }
-
-                .perex{
-                    color: $white;
-                }
-            }
-        }
-    }
-
-    .ppDetail.withBackground:nth-of-type(even){
-        .ppSplit{
-            .ppImage{
-                order: 1;
-            }
-
-            .ppText{
-                order: 2;
-            }
-        }
-    }
 }
+
 // mobile & app
 @media only screen and (max-width: 980px){
     .mobile #celek,
     .mobileapp #celek{
-        .ppDetail.detail100,
-        .ppDetail.withBackground{
-            .ppSplit{
-                .ppText{
-                    order: 1;
-                    margin-top: 0;
-                    padding: 32px 24px;
-                }
+        .ppDetail.detail100 .ppSplit,
+        .ppDetail .ppSplit.withBackground{
+            .ppText{
+                order: 1;
+                margin-top: 0;
+                padding: 32px 24px;
             }
         }
     }
@@ -226,23 +219,6 @@
             width: 100%;
         }
 
-        .ppDetail .ppSplit .ppImage{
-            &__wrapper{
-                justify-content: center;
-
-                img{
-                    margin: 0 auto;
-                    max-width: 70%;
-                    min-width: auto;
-                }
-            }
-        }
-
-        .ppDetail.withBackground .ppSplit .ppImage__wrapper img,
-        .ppDetail.detail100 .ppSplit .ppImage__wrapper img{
-            max-width: 100%;
-        }
-
         .ppDetail .ppSplit .ppText{
             order: 2;
             padding-left: 0;
@@ -250,8 +226,32 @@
             margin-top: 32px;
         }
 
+        // image
+        /* .ppDetail .ppSplit.withBackground .ppImage__wrapper img, */
+        .ppDetail.detail100 .ppSplit .ppImage__wrapper img{
+            max-width: 100%;
+        }
+
         .ppDetail .ppSplit .ppImage{
             order: 1;
+            overflow: hidden;
+
+            &__wrapper{
+                max-height: 300px;
+            }
+
+            img{
+                border-radius: 10px;
+                max-height: 300px;
+            }
+        }
+
+        .ppDetail .ppSplit.withBackground .ppImage__wrapper img{
+            border-radius: 10px 10px 0 0;
+        }
+
+        .ppDetail.detail100 .ppSplit .ppImage__wrapper img{
+            border-radius: 0 0 10px 10px;
         }
     }
 }
