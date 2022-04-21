@@ -33,7 +33,7 @@
             }
 
             .ppImage{
-                width: calc(50% - 30px);
+                width: 50%;
                 order: 1;
 
                 &__wrapper{
@@ -54,7 +54,7 @@
 
             .ppText{
                 box-sizing: border-box;
-                width: calc(50% - 30px);
+                width: calc(50% - 50px);
                 text-align: left;
                 order: 2;
                 display: flex;
