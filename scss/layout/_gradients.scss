@@ -54,7 +54,7 @@ $gradients: (
     #celek[data-color="#{$name}"]{
         .ppCarousel .mySwiper,
         .ppDetail .ppSplit.withBackground,
-        .ppDetail.detail100 .ppSplit{
+        .ppDetail.detail100 .ppText{
             background: $gradient;
         }
     }
