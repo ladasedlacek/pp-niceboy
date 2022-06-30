@@ -47,7 +47,6 @@
     // body text
     p,
     span,
-    a,
     li,
     .perex,
     .par,
@@ -70,6 +69,10 @@
                 color: darken($color: $media, $amount: 6%);
             }
         }
+    }
+
+    a{
+        color: inherit;
     }
 
     .perex,
